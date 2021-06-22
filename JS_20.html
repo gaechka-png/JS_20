@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //ЗАдание №1
+        let numOne = +prompt('Введите первое число')
+        let numTwo = +prompt('Введите второе число')
+        function calcComparison() {
+            if (numOne < numTwo) {
+                alert(-1)
+            } else if (numOne > numTwo) {
+                alert(1)
+            } else if (numOne = numTwo) {
+                alert(0)
+            }
+        } calcComparison()
+        //-----------------------------------------------------------
+        //Задание №2
+        let a = +prompt('Введите первое число')
+        function calcFactorial(a) {
+            return (a != 1) ? a * calcFactorial(a - 1) : 1;
+        }
+        alert(calcFactorial(a)); // 720
+        //-----------------------------------------------------------
+        //Задание №3
+        const number = Number([5, 3, 7].join(""));
+        alert(number)
+        //-----------------------------------------------------------
+        //Задание №4
+        function checkArea(a, b = 0) {
+            if (b === 0) { return a ** 2; }
+            return a * b;
+        }
+        console.log(checkArea(6));
+        console.log(checkArea(5, 5));
+        //-----------------------------------------------------------
+        //Задание №5
+        function calcPerfectNumber(num) {
+            for (var i = 1, n = 0; i < num; i++) {
+                if (num % i === 0) {
+                    n += i;
+                }
+            }
+            return n === num;
+        }
+        console.log(calcPerfectNumber(6));
+        console.log(calcPerfectNumber(7));
+        console.log(calcPerfectNumber(28));
+        console.log(calcPerfectNumber(8127));
+        console.log(calcPerfectNumber(8128));
+
+        // // Задание №6
+        function f(num) {
+            let res = [];
+            for (var i = 1; i <= 9000; i++) {
+                if (calcPerfectNumber(i)) {
+                    res.push(i)
+                }
+            }
+            return res;
+        }
+        console.log(f());
+        //-----------------------------------------------------------
+        //Задание №7
+        function startTime() {
+            let date = new Date(2001, 01, 01, 20);
+            hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()
+            minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
+            seconds = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds()
+            alert(hours + ":" + minutes + ":" + seconds);
+        }
+        startTime();
+        //-----------------------------------------------------------
+        //Задание №8
+        function calcTransfer(sec) {
+            sec = Number(sec);
+            let hours = Math.floor(sec / 3600);
+            let minutes = Math.floor(sec % 3600 / 60);
+            let seconds = Math.floor(sec % 3600 % 60);
+
+            hours = hours < 10 ? `0${hours}` : hours
+            minutes = minutes < 10 ? `0${minutes}` : minutes
+            seconds = seconds < 10 ? `0${seconds}` : seconds
+            alert(hours + ":" + minutes + ":" + seconds);
+        } calcTransfer(3600)
+        //-----------------------------------------------------------
+        //Задание №9
+
+        function calcSecond(a, b, c) {
+            let hours = a * 3600
+            let minutes = b * 60
+            let sum = hours + minutes + c
+            console.log(sum)
+        } calcSecond(01, 00, 00)
+        //-----------------------------------------------------------
+        //Задание №9
+        function calcDiffDate() {
+            let first = new Date(2001, 01, 01, 20, 20, 20)
+            let two = new Date(2001, 01, 01, 00, 00, 00)
+            let diff = first - two;
+            let hours = Math.floor(diff / 3.6e6);
+            let minutes = Math.floor((diff % 3.6e6) / 6e4);
+            let seconds = Math.floor((diff % 6e4) / 1000);
+            let duration = hours + ":" + minutes + ":" + seconds;
+            console.log(duration)
+        } calcDiffDate()
+    </script>
+</body>
+
+</html>
